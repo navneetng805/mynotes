@@ -88,9 +88,6 @@ function deleteNote(index){
     console.log(`Delete`);
 
     let titleTxt = localStorage.getItem("titleTxt");
-    localStorage.setItem("titleTxt", JSON.stringify(titleNo));
-
-
     let notes = localStorage.getItem("notes");
     if(notes==null){
         notesObj = [];
@@ -100,7 +97,10 @@ function deleteNote(index){
     }
     notesObj.splice(index,1);
     titleNo.splice(index,1);
+    
+    localStorage.setItem("titleTxt", JSON.stringify(titleNo));
     localStorage.setItem("notes", JSON.stringify(notesObj));
+    
     showNotes(); 
 
 }
